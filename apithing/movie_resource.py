@@ -35,7 +35,7 @@ def popular_movies(genre):
 
 
 def ttle_naming(ttle_id):
-    """returns title name for chosen genre"""
+    """returns title name for chosen genre and id"""
     conn = http.client.HTTPSConnection("imdb8.p.rapidapi.com")
     your_recomm= ttle_id.split('/')[2]
     url_ttle = "/title/get-details?tconst=" + your_recomm

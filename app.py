@@ -25,7 +25,10 @@ def movies():
 
 @app.route('/action_page')
 def action_page():
-  page = request.args.get('movie', type = str)
-  id_title=movie_resource.popular_movies(page)
-  movie_to_displ = movie_resource.ttle_naming(id_title)
-  return movie_to_displ
+  def movie_to_displ():
+      movie_to_displ =movie_resource.ttle_naming(movie_resource.popular_movies(request.args.get('movie', type = str)))
+      return dict(movie_to_displ)
+  def img():
+      image = movie_to_displ.get('image')
+      return image
+  return render_template('action_page.html', film=movie_to_displ(), image =img())
